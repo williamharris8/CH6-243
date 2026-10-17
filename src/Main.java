@@ -62,6 +62,25 @@ public class Main {
 
         System.out.println(" Sorted by artist ");
         artistList.display();
+
+        System.out.println(" Edge case tests ");
+
+        playlist.addLast(new Song("Black Hole Sun", "Soundgarden", 318));
+        System.out.println(" After adding to end (tail check) ");
+        playlist.display();
+
+        SinglyLinkedList testList = new SinglyLinkedList();
+        testList.add(0, new Song("Linger", "The Cranberries", 274));
+        testList.addLast(new Song("Dreams", "Fleetwood Mac", 257));
+        testList.addLast(new Song("Creep", "Radiohead", 239));
+        System.out.println(" Started from empty list ");
+        testList.display();
+
+        Iterator<Song> it2 = testList.iterator();
+        it2.next();
+        it2.remove();
+        System.out.println(" After removing first song ");
+        testList.display();
     }
 
 }

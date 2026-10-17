@@ -6,3 +6,4 @@ PHASE 3 - Inserting in teh middle of a linked list is O(n) since you walk from h
 
 PHASE 4 - A separate SortedLinkedList picks its sorting rule when it's made so every song added goes into the right spot automatically. Since the Comparator is passed in, the same class can sort by title, artist or other without code change. Tested this by sorting with title and also artist.
 
+PHASE 5 - I tested adding to an empty list, removing the first and last songs, and inserting at index 0 and everythign worked. The bug I ran into was forgetting to update size in addLast and remove() so add() thought the list was empty and threw an IndexOutOfBoundsException. 
