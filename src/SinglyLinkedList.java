@@ -14,6 +14,7 @@ public class SinglyLinkedList implements Iterable<Song> {
 
     protected Node head;
     protected Node tail;
+    protected int size;
 
     public void addLast(Song song) {
         Node newNode = new Node(song);
@@ -25,6 +26,7 @@ public class SinglyLinkedList implements Iterable<Song> {
             tail.next = newNode;
             tail = newNode;
         }
+        size++;
     }
 
     public void display() {
@@ -33,6 +35,42 @@ public class SinglyLinkedList implements Iterable<Song> {
             System.out.println(current.data);
             current = current.next;
         }
+    }
+
+    public Song get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
+    public void add(int index, Song song) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        if (index == size) {
+            addLast(song);
+            return;
+        }
+
+        Node newNode = new Node(song);
+
+        if (index == 0) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node before = head;
+            for (int i = 0; i < index - 1; i++) {
+                before = before.next;
+            }
+            newNode.next = before.next;
+            before.next = newNode;
+        }
+        size++;
     }
 
     public Iterator<Song> iterator() {
@@ -69,6 +107,7 @@ public class SinglyLinkedList implements Iterable<Song> {
                 if (lastReturned == tail) {
                     tail = prev;
                 }
+                size--;
                 lastReturned = null;
             }
         };
