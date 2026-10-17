@@ -1,2 +1,1 @@
-# Journal
-Write your Journal questions and notes here.
+PHASE 1 - For this had me make a Song class and a linked list that stores songs in a chain of nodes. Then add a method for putting songs at the end and a method to print followed by three test songs. Linked lists keep each item in a separate node pointing to the next following the links from the start. An array though keeps items side by side in one fixed block. 
